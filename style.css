@@ -4,6 +4,9 @@
   Фиолетово-Лаймовый Апокалипсис
 */
 
+/* Подключение шрифта Pirata One */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +14,9 @@
 }
 
 body {
-    font-family: 'Arial Black', 'Impact', 'Haettenschweiler', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
+    font-style: normal;
     background-color: #000000;
     color: #00ff00;
     min-height: 100vh;
@@ -135,6 +140,8 @@ body::after {
     opacity: 0.7;
     transform: rotate(15deg);
     text-shadow: 0 0 5px #ff00ff;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .container::after {
@@ -147,6 +154,8 @@ body::after {
     opacity: 0.7;
     transform: rotate(-15deg);
     text-shadow: 0 0 5px #00ff00;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 /* Header стили - максимально эмо-кор */
@@ -170,6 +179,8 @@ header {
     display: inline-block;
     animation: emoSpin 3s infinite linear;
     text-shadow: 0 0 10px #00ff00;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .decoration-item:nth-child(1) {
@@ -197,7 +208,9 @@ header {
 }
 
 .jojo-title {
-    font-family: 'Impact', 'Haettenschweiler', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
+    font-style: normal;
     font-size: 5rem;
     color: #ff00ff;
     letter-spacing: 5px;
@@ -238,6 +251,8 @@ header {
     color: #00ff00;
     transform: rotate(-45deg);
     animation: crossPulse 2s infinite;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .jojo-title::after {
@@ -249,6 +264,8 @@ header {
     color: #ff00ff;
     transform: rotate(45deg);
     animation: crossPulse 2s infinite reverse;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 @keyframes crossPulse {
@@ -260,12 +277,13 @@ header {
     font-size: 1.8rem;
     color: #00ff00;
     margin-bottom: 10px;
-    font-weight: 900;
     letter-spacing: 3px;
     text-shadow: 
         0 0 10px #00ff00,
         0 0 20px #00ff00;
     animation: subtitleGlitch 5s infinite;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 @keyframes subtitleGlitch {
@@ -305,6 +323,8 @@ header {
     color: #ff00ff;
     opacity: 0.3;
     transform: rotate(-45deg);
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .course-info::after {
@@ -315,12 +335,15 @@ header {
     font-size: 12px;
     color: #00ff00;
     opacity: 0.3;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .course-info h2 {
     color: #ff00ff;
     margin-bottom: 15px;
-    font-family: 'Arial Black', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -339,7 +362,8 @@ header {
     font-size: 1.1rem;
     color: #00ff00;
     text-shadow: 0 0 5px #00ff00;
-    font-weight: bold;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .course-stats {
@@ -363,14 +387,16 @@ header {
     transform: translateX(-50%);
     color: #ff00ff;
     font-size: 1.5rem;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .stat-number {
     display: block;
-    font-family: 'Impact', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 4rem;
     color: #00ff00;
-    font-weight: bold;
     text-shadow: 
         0 0 10px #00ff00,
         0 0 20px #00ff00;
@@ -393,8 +419,9 @@ header {
     color: #ff00ff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: bold;
     margin-top: 5px;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 /* Стили для сетки ссылок - эмо-кор версия */
@@ -406,7 +433,8 @@ header {
     text-align: center;
     color: #00ff00;
     margin-bottom: 30px;
-    font-family: 'Arial Black', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 3rem;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -495,6 +523,8 @@ header {
     color: #ff00ff;
     opacity: 0.5;
     transform: rotate(-45deg);
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .link-icon {
@@ -512,7 +542,8 @@ header {
 }
 
 .link-title {
-    font-family: 'Impact', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 2rem;
     color: #00ff00;
     margin-bottom: 10px;
@@ -526,15 +557,17 @@ header {
     line-height: 1.5;
     font-size: 1rem;
     flex-grow: 1;
-    font-weight: bold;
     text-shadow: 0 0 3px #ff00ff;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .stand-name {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px dashed #00ff00;
-    font-family: 'Arial Black', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 1.2rem;
     color: #ff00ff;
     text-align: center;
@@ -562,6 +595,8 @@ header {
     font-size: 4rem;
     color: rgba(255, 0, 255, 0.2);
     z-index: 0;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .placeholder i {
@@ -574,7 +609,8 @@ header {
 }
 
 .placeholder h3 {
-    font-family: 'Impact', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 2rem;
     margin-bottom: 10px;
     letter-spacing: 2px;
@@ -704,13 +740,15 @@ header {
     line-height: 1.6;
     margin-bottom: 15px;
     text-shadow: 0 0 10px #ff00ff;
-    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .quote-author {
-    font-family: 'Arial Black', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 1.8rem;
     color: #00ff00;
     letter-spacing: 3px;
@@ -757,10 +795,13 @@ footer::before {
     color: #00ff00;
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .footer-logo {
-    font-family: 'Impact', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 2.5rem;
     color: #ff00ff;
     margin-bottom: 15px;
@@ -769,6 +810,11 @@ footer::before {
         0 0 10px #ff00ff,
         0 0 20px #ff00ff;
     -webkit-text-stroke: 1px #00ff00;
+}
+
+footer p {
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .footer-social {
@@ -824,7 +870,8 @@ footer::before {
     color: #00ff00;
     border: 2px solid #ff00ff;
     border-radius: 0;
-    font-family: 'Arial Black', sans-serif;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
     font-size: 1.2rem;
     letter-spacing: 2px;
     cursor: pointer;
@@ -934,11 +981,15 @@ footer::before {
 
 .glitch-text {
     animation: glitch 0.3s infinite;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 /* Эффект поврежденного текста */
 .damaged-text {
     position: relative;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 .damaged-text::after {
@@ -951,6 +1002,8 @@ footer::before {
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     animation: damagedText 5s infinite;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 @keyframes damagedText {
@@ -1091,6 +1144,8 @@ footer::before {
     font-size: 20px;
     opacity: 0.3;
     z-index: 0;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 
 /* Эффект кровотечения текста */
@@ -1102,6 +1157,8 @@ footer::before {
         2px 2px 0 #ff00ff,
         3px 3px 0 #000000,
         4px 4px 0 #00ff00;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
 }
 /* Стили для GIF-фона */
 .gif-background {
@@ -1130,7 +1187,6 @@ footer::before {
         saturate(2)
         blur(0.5px);
 }
-
 
 /* Обновить body */
 body {
