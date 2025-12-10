@@ -1,0 +1,1140 @@
+/* 
+  ЭМО-КОР 2007 СТАЙЛ
+  ТОКСИЧНО-КИСЛОТНЫЙ АНДЕГРАУНД
+  Фиолетово-Лаймовый Апокалипсис
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Black', 'Impact', 'Haettenschweiler', sans-serif;
+    background-color: #000000;
+    color: #00ff00;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000000"/><path d="M0,50 L100,50 M50,0 L50,100" stroke="%23ff00ff" stroke-width="1" opacity="0.2"/><circle cx="50" cy="50" r="20" fill="none" stroke="%2300ff00" stroke-width="0.5" opacity="0.3"/></svg>'),
+        linear-gradient(45deg, #000000 25%, #1a001a 25%, #1a001a 50%, #000000 50%, #000000 75%, #1a001a 75%, #1a001a);
+    background-size: 100px 100px, 40px 40px;
+    text-shadow: 0 0 5px #00ff00;
+    image-rendering: pixelated;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 255, 0.05) 2px,
+            rgba(255, 0, 255, 0.05) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 0, 0.05) 2px,
+            rgba(0, 255, 0, 0.05) 4px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Эффект старых ЭЛТ-мониторов */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 255, 0, 0.07) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 0, 255, 0.07) 0%,
+            transparent 50%
+        );
+    pointer-events: none;
+    z-index: -1;
+    animation: scanlines 0.1s infinite linear;
+}
+
+@keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 10px; }
+}
+
+/* Эффект звездного неба - переделан под ЭМО-кор */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(0, 255, 0, 0.1) 0%, transparent 50%);
+}
+
+.star {
+    position: absolute;
+    background-color: #ff00ff;
+    border-radius: 50%;
+    animation: toxicTwinkle 1s infinite alternate;
+}
+
+@keyframes toxicTwinkle {
+    0% { 
+        opacity: 0.1; 
+        box-shadow: 0 0 3px #ff00ff, 0 0 6px #ff00ff;
+    }
+    100% { 
+        opacity: 1; 
+        box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #00ff00;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 3px solid #ff00ff;
+    box-shadow: 
+        0 0 20px #ff00ff,
+        inset 0 0 20px #00ff00,
+        0 0 40px rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.85);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: 'EMO-CORE 2007';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #ff00ff;
+    opacity: 0.7;
+    transform: rotate(15deg);
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.container::after {
+    content: 'xXx_TOXIC_UNDERGROUND_xXx';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #00ff00;
+    opacity: 0.7;
+    transform: rotate(-15deg);
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* Header стили - максимально эмо-кор */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed #ff00ff;
+    text-transform: uppercase;
+}
+
+.header-decoration {
+    margin-top: 30px;
+}
+
+.decoration-item {
+    color: #00ff00;
+    font-size: 2rem;
+    margin: 0 20px;
+    display: inline-block;
+    animation: emoSpin 3s infinite linear;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.decoration-item:nth-child(1) {
+    color: #ff00ff;
+    animation-direction: reverse;
+}
+
+.decoration-item:nth-child(3) {
+    color: #ffff00;
+}
+
+@keyframes emoSpin {
+    0% { 
+        transform: rotate(0deg) scale(1); 
+        text-shadow: 0 0 10px currentColor;
+    }
+    50% { 
+        transform: rotate(180deg) scale(1.5); 
+        text-shadow: 0 0 20px currentColor, 0 0 30px #ffffff;
+    }
+    100% { 
+        transform: rotate(360deg) scale(1); 
+        text-shadow: 0 0 10px currentColor;
+    }
+}
+
+.jojo-title {
+    font-family: 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 5rem;
+    color: #ff00ff;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 
+        3px 3px 0 #000000,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    -webkit-text-stroke: 1px #00ff00;
+    animation: titleFlicker 2s infinite alternate;
+}
+
+@keyframes titleFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 
+            3px 3px 0 #000000,
+            0 0 20px #ff00ff,
+            0 0 40px #ff00ff;
+    }
+    20%, 24%, 55% {
+        opacity: 0.7;
+        text-shadow: 
+            3px 3px 0 #000000,
+            0 0 10px #ff00ff,
+            0 0 20px #00ff00;
+    }
+}
+
+.jojo-title::before {
+    content: '✝';
+    position: absolute;
+    left: -40px;
+    top: 10px;
+    font-size: 3rem;
+    color: #00ff00;
+    transform: rotate(-45deg);
+    animation: crossPulse 2s infinite;
+}
+
+.jojo-title::after {
+    content: '✝';
+    position: absolute;
+    right: -40px;
+    top: 10px;
+    font-size: 3rem;
+    color: #ff00ff;
+    transform: rotate(45deg);
+    animation: crossPulse 2s infinite reverse;
+}
+
+@keyframes crossPulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #00ff00;
+    margin-bottom: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    animation: subtitleGlitch 5s infinite;
+}
+
+@keyframes subtitleGlitch {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Course info стили - переделан под эмо-кор */
+.course-info {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 0;
+    border: 2px solid #00ff00;
+    border-image: linear-gradient(45deg, #ff00ff, #00ff00) 1;
+    box-shadow: 
+        0 0 15px #00ff00,
+        inset 0 0 15px #ff00ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-info::before {
+    content: 'XXX';
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    color: #ff00ff;
+    opacity: 0.3;
+    transform: rotate(-45deg);
+}
+
+.course-info::after {
+    content: 'SCENE 2007';
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 12px;
+    color: #00ff00;
+    opacity: 0.3;
+}
+
+.course-info h2 {
+    color: #ff00ff;
+    margin-bottom: 15px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff00ff;
+    border-bottom: 1px dashed #00ff00;
+    padding-bottom: 10px;
+}
+
+.course-info h2 i {
+    margin-right: 15px;
+    color: #00ff00;
+}
+
+.course-info p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    font-weight: bold;
+}
+
+.course-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ff00ff;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+}
+
+.stat-item::before {
+    content: '†';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff00ff;
+    font-size: 1.5rem;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Impact', sans-serif;
+    font-size: 4rem;
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    animation: statPulse 2s infinite;
+}
+
+@keyframes statPulse {
+    0%, 100% { 
+        transform: scale(1);
+        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+    }
+    50% { 
+        transform: scale(1.1);
+        text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00, 0 0 40px #ff00ff;
+    }
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #ff00ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Стили для сетки ссылок - эмо-кор версия */
+.links-section {
+    margin-bottom: 50px;
+}
+
+.links-section h2 {
+    text-align: center;
+    color: #00ff00;
+    margin-bottom: 30px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00;
+    position: relative;
+    padding: 10px;
+    border: 2px solid #ff00ff;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: sectionTitleGlitch 3s infinite;
+}
+
+@keyframes sectionTitleGlitch {
+    0%, 100% {
+        transform: skew(0deg);
+    }
+    50% {
+        transform: skew(5deg);
+    }
+}
+
+.links-section h2 i {
+    margin-right: 15px;
+    color: #ff00ff;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Карточки в эмо-кор стиле */
+.link-card {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 0;
+    padding: 25px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ff00ff;
+    box-shadow: 
+        0 0 10px #ff00ff,
+        inset 0 0 10px #00ff00;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform: skew(-2deg);
+}
+
+.link-card:hover {
+    transform: skew(-2deg) translateY(-10px) scale(1.05);
+    border-color: #00ff00;
+    box-shadow: 
+        0 0 20px #00ff00,
+        inset 0 0 20px #ff00ff,
+        0 0 40px rgba(0, 255, 0, 0.7);
+    z-index: 10;
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.link-card:hover::before {
+    left: 100%;
+}
+
+.link-card::after {
+    content: 'EMO';
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: #ff00ff;
+    opacity: 0.5;
+    transform: rotate(-45deg);
+}
+
+.link-icon {
+    font-size: 3rem;
+    color: #ff00ff;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 10px #ff00ff;
+    animation: iconFloat 2s infinite ease-in-out;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.link-title {
+    font-family: 'Impact', sans-serif;
+    font-size: 2rem;
+    color: #00ff00;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.link-desc {
+    color: #ff00ff;
+    line-height: 1.5;
+    font-size: 1rem;
+    flex-grow: 1;
+    font-weight: bold;
+    text-shadow: 0 0 3px #ff00ff;
+}
+
+.stand-name {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #00ff00;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.2rem;
+    color: #ff00ff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.placeholder {
+    background-color: rgba(50, 0, 50, 0.7);
+    border: 2px dashed #00ff00;
+    border-radius: 0;
+    padding: 25px;
+    text-align: center;
+    color: #ff00ff;
+    position: relative;
+    transform: skew(2deg);
+}
+
+.placeholder::before {
+    content: '?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: rgba(255, 0, 255, 0.2);
+    z-index: 0;
+}
+
+.placeholder i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    color: #00ff00;
+}
+
+.placeholder h3 {
+    font-family: 'Impact', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #ff00ff;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+/* Стиль для Stand-подобных элементов - эмо-кор версия */
+.stand-element {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #ff00ff 0%, #00ff00 50%, transparent 70%);
+    opacity: 0.1;
+    z-index: -1;
+    animation: toxicFloat 10s infinite ease-in-out;
+    filter: blur(5px);
+}
+
+@keyframes toxicFloat {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.1;
+    }
+    25% { 
+        transform: translate(100px, 50px) rotate(90deg) scale(1.2);
+        opacity: 0.2;
+    }
+    50% { 
+        transform: translate(50px, 100px) rotate(180deg) scale(0.8);
+        opacity: 0.05;
+    }
+    75% { 
+        transform: translate(-50px, 50px) rotate(270deg) scale(1.1);
+        opacity: 0.15;
+    }
+}
+
+.stand-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.stand-2 {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+.stand-3 {
+    top: 50%;
+    left: 80%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 4s;
+}
+
+/* Цитата в эмо-кор стиле */
+.jojo-quote {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 3px double #ff00ff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-1deg);
+}
+
+.jojo-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 0, 255, 0.1) 10px,
+            rgba(255, 0, 255, 0.1) 20px
+        );
+    z-index: 0;
+}
+
+.quote-container {
+    position: relative;
+    padding: 0 40px;
+    z-index: 1;
+}
+
+.quote-container i {
+    position: absolute;
+    font-size: 3rem;
+    color: #00ff00;
+    opacity: 0.7;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.quote-container .fa-quote-left {
+    top: 0;
+    left: 0;
+    animation: quotePulse 2s infinite;
+}
+
+.quote-container .fa-quote-right {
+    bottom: 0;
+    right: 0;
+    animation: quotePulse 2s infinite reverse;
+}
+
+@keyframes quotePulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.quote-text {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #ff00ff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ff00ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.quote-author {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.8rem;
+    color: #00ff00;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00ff00;
+    position: relative;
+}
+
+.quote-author::before {
+    content: '~';
+    margin-right: 10px;
+    color: #ff00ff;
+}
+
+.quote-author::after {
+    content: '~';
+    margin-left: 10px;
+    color: #ff00ff;
+}
+
+/* Footer - эмо-кор стиль */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    border-top: 3px solid #00ff00;
+    color: #ff00ff;
+    font-size: 0.9rem;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 
+        0 -5px 20px rgba(0, 255, 0, 0.3),
+        inset 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+footer::before {
+    content: 'MYSPACE CORE 2007';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000000;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    color: #00ff00;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    font-family: 'Impact', sans-serif;
+    font-size: 2.5rem;
+    color: #ff00ff;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+    text-shadow: 
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff;
+    -webkit-text-stroke: 1px #00ff00;
+}
+
+.footer-social {
+    margin: 20px 0;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    color: #00ff00;
+    border-radius: 50%;
+    line-height: 50px;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid #ff00ff;
+    text-shadow: 0 0 5px #00ff00;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.5), transparent);
+    transition: left 0.5s ease;
+}
+
+.social-icon:hover::before {
+    left: 100%;
+}
+
+.social-icon:hover {
+    background-color: #ff00ff;
+    color: #000000;
+    transform: scale(1.2) rotate(20deg);
+    border-color: #00ff00;
+    box-shadow: 
+        0 0 20px #ff00ff,
+        0 0 30px #00ff00;
+}
+
+.theme-toggle {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #000000;
+    color: #00ff00;
+    border: 2px solid #ff00ff;
+    border-radius: 0;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.theme-toggle:hover::before {
+    left: 100%;
+}
+
+.theme-toggle:hover {
+    background-color: #ff00ff;
+    color: #000000;
+    transform: scale(1.1) skew(-5deg);
+    border-color: #00ff00;
+    box-shadow: 
+        0 0 15px #ff00ff,
+        0 0 25px #00ff00;
+}
+
+.theme-toggle i {
+    margin-right: 10px;
+}
+
+/* Анимация для заголовка - эмо-кор версия */
+@keyframes titleGlow {
+    0%, 100% { 
+        text-shadow: 
+            3px 3px 0 #000000,
+            0 0 20px #ff00ff,
+            0 0 40px #ff00ff;
+    }
+    50% { 
+        text-shadow: 
+            3px 3px 0 #000000,
+            0 0 30px #ff00ff,
+            0 0 60px #ff00ff,
+            0 0 80px #00ff00;
+    }
+}
+
+.jojo-title {
+    animation: titleGlow 1.5s infinite alternate;
+}
+
+/* Анимация для карточек при загрузке */
+@keyframes cardAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.link-card {
+    animation: cardAppear 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.link-card:nth-child(1) { animation-delay: 0.1s; }
+.link-card:nth-child(2) { animation-delay: 0.2s; }
+.link-card:nth-child(3) { animation-delay: 0.3s; }
+.link-card:nth-child(4) { animation-delay: 0.4s; }
+.link-card:nth-child(5) { animation-delay: 0.5s; }
+.link-card:nth-child(6) { animation-delay: 0.6s; }
+.link-card:nth-child(7) { animation-delay: 0.7s; }
+.link-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Эффект глитча */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.glitch-text {
+    animation: glitch 0.3s infinite;
+}
+
+/* Эффект поврежденного текста */
+.damaged-text {
+    position: relative;
+}
+
+.damaged-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    top: -1px;
+    color: #ff00ff;
+    background-color: #000000;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: damagedText 5s infinite;
+}
+
+@keyframes damagedText {
+    0%, 100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    50% {
+        clip-path: polygon(0 10%, 100% 20%, 90% 90%, 10% 80%);
+    }
+}
+
+/* Адаптивность - эмо-кор стиль */
+@media (max-width: 768px) {
+    .jojo-title {
+        font-size: 3.5rem;
+        letter-spacing: 3px;
+    }
+    
+    .subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stand-element {
+        display: none;
+    }
+    
+    .course-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .quote-text {
+        font-size: 1.4rem;
+    }
+    
+    .container {
+        padding: 10px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .jojo-title {
+        font-size: 2.5rem;
+    }
+    
+    .jojo-title::before,
+    .jojo-title::after {
+        display: none;
+    }
+    
+    .course-info h2,
+    .links-section h2 {
+        font-size: 2rem;
+    }
+    
+    .link-title {
+        font-size: 1.8rem;
+    }
+    
+    .footer-logo {
+        font-size: 2rem;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.2rem;
+        margin: 0 5px;
+    }
+}
+
+/* Эффект мигающего курсора */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background-color: #00ff00;
+    animation: blink 1s infinite;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Эффект VHS искажения */
+.vhs-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.vhs-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5) 50%);
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.3;
+    animation: vhsScan 0.1s infinite linear;
+}
+
+@keyframes vhsScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 4px; }
+}
+
+/* Эффект статического шума */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.03;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)"/></svg>');
+}
+
+/* Кресты и символы эмо-кор эстетики */
+.emo-cross {
+    position: absolute;
+    color: #ff00ff;
+    font-size: 20px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* Эффект кровотечения текста */
+.bleed-text {
+    position: relative;
+    color: #ff00ff;
+    text-shadow: 
+        1px 1px 0 #000000,
+        2px 2px 0 #ff00ff,
+        3px 3px 0 #000000,
+        4px 4px 0 #00ff00;
+}
+/* Стили для GIF-фона */
+.gif-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.gif-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: 
+        brightness(0.6) 
+        contrast(1.3)
+        saturate(2)
+        blur(0.5px);
+}
+
+
+/* Обновить body */
+body {
+    background: transparent !important;
+    margin: 0;
+    padding: 0;
+}

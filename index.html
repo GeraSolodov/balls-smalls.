@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для упрощенной версии */
+        .course-info, .jojo-quote {
+            display: none;
+        }
+        
+        .links-section h2 {
+            margin-bottom: 40px;
+        }
+        
+        .hw-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hw-card {
+            background: rgba(30, 30, 60, 0.9);
+            border-radius: 10px;
+            padding: 30px 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 200px;
+            justify-content: center;
+        }
+        
+        .light-theme .hw-card {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hw-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #f0db4f;
+            box-shadow: 0 15px 25px rgba(240, 219, 79, 0.3);
+        }
+        
+        .light-theme .hw-card:hover {
+            border-color: #d62828;
+            box-shadow: 0 15px 25px rgba(214, 40, 40, 0.3);
+        }
+        
+        .hw-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(240, 219, 79, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .hw-card:hover::before {
+            left: 100%;
+        }
+        
+        .hw-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            color: #f0db4f;
+            margin-bottom: 10px;
+            line-height: 1;
+            text-shadow: 2px 2px 0 #d62828;
+        }
+        
+        .light-theme .hw-number {
+            color: #d62828;
+            text-shadow: 2px 2px 0 rgba(214, 40, 40, 0.3);
+        }
+        
+        .hw-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .light-theme .hw-title {
+            color: #222;
+        }
+        
+        .hw-type {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            color: #8a8aff;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 5px 15px;
+            background-color: rgba(138, 138, 255, 0.1);
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        .light-theme .hw-type {
+            color: #5555cc;
+            background-color: rgba(85, 85, 204, 0.1);
+        }
+        
+        .hw-type.hw {
+            color: #4fd44f;
+            background-color: rgba(79, 212, 79, 0.1);
+        }
+        
+        .light-theme .hw-type.hw {
+            color: #2a8a2a;
+            background-color: rgba(42, 138, 42, 0.1);
+        }
+        
+        .hw-type.pr {
+            color: #f0db4f;
+            background-color: rgba(240, 219, 79, 0.1);
+        }
+        
+        .light-theme .hw-type.pr {
+            color: #d6a82a;
+            background-color: rgba(214, 168, 42, 0.1);
+        }
+        
+        .hw-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .hw-status.completed {
+            background-color: #4fd44f;
+            box-shadow: 0 0 10px #4fd44f;
+        }
+        
+        .hw-status.in-progress {
+            background-color: #f0db4f;
+            box-shadow: 0 0 10px #f0db4f;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hw-description {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #a0a0ff;
+            line-height: 1.4;
+            display: none;
+        }
+        
+        .light-theme .hw-description {
+            color: #666;
+        }
+        
+        .hw-card:hover .hw-description {
+            display: block;
+        }
+        
+        footer {
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .hw-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hw-number {
+                font-size: 3.5rem;
+            }
+            
+            .hw-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hw-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-background">
+        <img src="nina-the-killer.gif" alt="EMO фон" class="gif-bg">
+    </div>
+
+    <!-- Эффект звездного неба -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="jojo-title">WEBDEV COURSE</h1>
+            <p class="subtitle">РАБОТЫ И ДОМАШКИ ПО КУРСУ</p>
+            <div class="header-decoration">
+                <span class="decoration-item">☆</span>
+                <span class="decoration-item">★</span>
+                <span class="decoration-item">☆</span>
+            </div>
+        </header>
+        
+        <main>
+            <section class="links-section">
+                <h2><i class="fas fa-tasks"></i> СПИСОК РАБОТ</h2>
+                
+                <div class="hw-grid">
+                    <!-- Карточка HW1 -->
+                    <a href="https://gerasolodov.github.io/hw1/" class="hw-card" data-hw="hw1">
+                        <div class="hw-status completed"></div>
+                        <div class="hw-number">01</div>
+                        <h3 class="hw-title">HW 1</h3>
+                        <div class="hw-type hw">Домашняя работа №1</div>
+                    </a>
+                    
+                    <!-- Карточка HW2 -->
+                    <a href="https://gerasolodov.github.io/hw2/" class="hw-card" data-hw="hw2">
+                        <div class="hw-status completed"></div>
+                        <div class="hw-number">02</div>
+                        <h3 class="hw-title">HW 2</h3>
+                        <div class="hw-type hw">Домашняя работа №2</div>
+                    </a>
+                    
+                    <!-- Карточка PR1 -->
+                    <a href="https://gerasolodov.github.io/pr1/" class="hw-card" data-hw="pr1">
+                        <div class="hw-status completed"></div>
+                        <div class="hw-number">03</div>
+                        <h3 class="hw-title">PR 1</h3>
+                        <div class="hw-type pr">Практика №1</div>
+                    </a>
+                    
+                    <!-- Карточка PR2 -->
+                    <a href="https://gerasolodov.github.io/pr2/" class="hw-card" data-hw="pr2">
+                        <div class="hw-status completed"></div>
+                        <div class="hw-number">04</div>
+                        <h3 class="hw-title">PR 2</h3>
+                        <div class="hw-type pr">Практика №2</div>
+                    </a>
+                    
+                    <!-- Карточка для будущих заданий -->
+                    <div class="hw-card placeholder" data-hw="future">
+                        <div class="hw-status in-progress"></div>
+                        <div class="hw-number">05</div>
+                        <h3 class="hw-title">HW 3</h3>
+                        <div class="hw-type">Домашняя работа №3</div>
+                        <div class="hw-description">Скоро здесь появится новое задание по курсу.</div>
+                    </div>
+                </div>
+                
+                <div class="status-legend" style="margin-top: 40px; text-align: center; color: #8a8aff; font-size: 0.9rem;">
+                    <div style="display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <div class="hw-status completed" style="position: static;"></div>
+                            <span>Выполнено</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <div class="hw-status in-progress" style="position: static;"></div>
+                            <span>В процессе</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <div class="footer-logo">WEBDEV COURSE</div>
+            <p>© 2025 Сайт создан в учебных целях</p>
+            <div class="footer-social">
+                <a href="https://github.com/GeraSolodov" class="social-icon"><i class="fab fa-github"></i></a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i> Переключить тему
+            </button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Дополнительный скрипт для карточек заданий
+        document.addEventListener('DOMContentLoaded', function() {
+            // Настройка карточек заданий
+            const hwCards = document.querySelectorAll('.hw-card');
+            
+            hwCards.forEach(card => {
+                // Эффект при наведении
+                card.addEventListener('mouseenter', function() {
+                    const hwNumber = this.querySelector('.hw-number');
+                    if (hwNumber) {
+                        hwNumber.style.transform = 'scale(1.2)';
+                        hwNumber.style.transition = 'transform 0.3s ease';
+                    }
+                    
+                    // Показать описание
+                    const description = this.querySelector('.hw-description');
+                    if (description) {
+                        description.style.display = 'block';
+                        description.style.animation = 'fadeIn 0.3s ease';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const hwNumber = this.querySelector('.hw-number');
+                    if (hwNumber) {
+                        hwNumber.style.transform = 'scale(1)';
+                    }
+                    
+                    // Скрыть описание (кроме плейсхолдера)
+                    if (!this.classList.contains('placeholder')) {
+                        const description = this.querySelector('.hw-description');
+                        if (description) {
+                            description.style.display = 'none';
+                        }
+                    }
+                });
+                
+                // Обработка клика
+                card.addEventListener('click', function(e) {
+                    if (this.classList.contains('placeholder')) {
+                        e.preventDefault();
+                        // Анимация для плейсхолдера
+                        this.style.animation = 'shake 0.5s ease';
+                        setTimeout(() => {
+                            this.style.animation = '';
+                        }, 500);
+                        
+                        // Показываем сообщение
+                        showMessage('Это задание еще не доступно!', 'warning');
+                    } else {
+                        // Эффект при клике
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 200);
+                        
+                        const hwType = this.classList.contains('hw-card') ? 
+                            (this.querySelector('.hw-type').textContent.includes('Домашняя') ? 'Домашняя работа' : 'Проект') : '';
+                        const hwTitle = this.querySelector('.hw-title').textContent;
+                        
+                        // В реальном проекте здесь был бы переход на страницу задания
+                        console.log(`Открываем: ${hwTitle} (${hwType})`);
+                        
+                        // Показываем сообщение о переходе
+                        setTimeout(() => {
+                            showMessage(`Переход к ${hwTitle}...`, 'info');
+                        }, 300);
+                    }
+                });
+            });
+            
+            // Добавляем анимацию появления карточек
+            const hwGrid = document.querySelector('.hw-grid');
+            if (hwGrid) {
+                hwGrid.style.opacity = '0';
+                hwGrid.style.transform = 'translateY(20px)';
+                hwGrid.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    hwGrid.style.opacity = '1';
+                    hwGrid.style.transform = 'translateY(0)';
+                }, 300);
+            }
+            
+            // Добавляем стили для анимаций
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+        
+        // Функция показа сообщений (если не определена в script.js)
+        if (typeof showMessage === 'undefined') {
+            function showMessage(text, type = 'info') {
+                const message = document.createElement('div');
+                message.textContent = text;
+                message.style.position = 'fixed';
+                message.style.top = '20px';
+                message.style.right = '20px';
+                message.style.padding = '15px 25px';
+                message.style.borderRadius = '5px';
+                message.style.fontFamily = "'Bebas Neue', cursive";
+                message.style.fontSize = '1.2rem';
+                message.style.letterSpacing = '1px';
+                message.style.zIndex = '1000';
+                message.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+                message.style.animation = 'slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards';
+                
+                if (type === 'warning') {
+                    message.style.backgroundColor = '#f0db4f';
+                    message.style.color = '#0a0a1a';
+                    message.style.borderLeft = '5px solid #d62828';
+                } else {
+                    message.style.backgroundColor = '#d62828';
+                    message.style.color = '#f0f0f0';
+                    message.style.borderLeft = '5px solid #f0db4f';
+                }
+                
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.remove();
+                    }
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
